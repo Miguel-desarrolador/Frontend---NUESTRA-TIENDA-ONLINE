@@ -59,11 +59,10 @@ header .logo-text {
     margin-left: 60px;
 }
 .logo-gorra {
-  width: 150px;
+  width: 50px;
   height: auto;
-  padding-top: 10px;
   position: absolute;
-  left: -5px;
+  left: 15px;
 }
 
 .logo-gorra2{
@@ -171,7 +170,7 @@ hr {
 .btn-cta {
     background-color: rgb(155, 68, 255);
     color: #fff;
-  margin-bottom: -50px;
+  margin-bottom: -90px;
     text-decoration: none;
     padding: 10px 40px;
     font-size: 20px;
