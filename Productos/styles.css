@@ -73,9 +73,9 @@ margin-left: 22px;
 }
 
 .header-text {
-  flex: 1;             /* ocupa el espacio disponible */
+  flex: 1.1rem;             /* ocupa el espacio disponible */
   text-align: center;    /* centra el texto en su espacio */
-  font-size: 1.5rem;     /* tamaño del texto */
+  font-size: 1rem;     /* tamaño del texto */
   font-weight: bold;     /* negrita */
   color: rgb(255, 196, 0);           /* color dorado */
 }
