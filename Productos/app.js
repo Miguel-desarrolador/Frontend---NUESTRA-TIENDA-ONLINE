@@ -58,7 +58,7 @@ window.addEventListener('resize', () => showSlide(currentIndex));
   });
 
 // Api
-const API_URL = "https://backend-tiendaderopa-production.up.railway.app/api/productos";
+const API_URL = "https://backend-nuestra-tienda-online-production.up.railway.app/api/productos";
 
 
 
@@ -123,7 +123,7 @@ async function cargarProductos() {
 function renderizarProductos(listaProductos) {
   productosContainer.innerHTML = listaProductos.map((p, index) => `
     <div class="producto" data-id="${p.id}" data-aos="fade-right">
-   <img src="https://backend-tiendaderopa-production.up.railway.app/img/productos/${p.imagen}" alt="${p.nombre}">
+ <img src="https://backend-nuestra-tienda-online-production.up.railway.app/img/productos/${p.imagen}" alt="${p.nombre}">
 
       <h3>${p.nombre}</h3>
       <p class="precio">Precio: $${p.precio.toLocaleString("es-AR")}</p>
@@ -452,9 +452,9 @@ if (btnEditarImagen) btnEditarImagen.addEventListener("click", () => {
 
       const data = await res.json();
       p.imagen = data.imagen;
-// Actualizar imagen con la URL de Railway (Tienda de Ropa)
+// Actualizar imagen con la URL de Railway (Nuestra Tienda Online)
 if (imgElemento) {
-  imgElemento.src = `https://backend-tiendaderopa-production.up.railway.app/img/productos/${p.imagen}`;
+  imgElemento.src = `https://backend-nuestra-tienda-online-production.up.railway.app/img/productos/${p.imagen}`;
 }
 
 
@@ -649,8 +649,7 @@ function renderizarCarrito() {
     const div = document.createElement("div");
     div.classList.add("carrito-item");
     div.innerHTML = `
-    <img src="https://backend-tiendaderopa-production.up.railway.app/img/productos/${p.imagen}" alt="${p.nombre}">
-
+   <img src="https://backend-nuestra-tienda-online-production.up.railway.app/img/productos/${p.imagen}" alt="${p.nombre}">
 
       <div class="carrito-info">
         <p><strong>${p.nombre}</strong></p>
@@ -910,7 +909,7 @@ formDatosCliente.addEventListener("submit", async (e) => {
 // ==========================
 async function generarPDF(datosCliente, carrito) {
 try {
-  const res = await fetch("https://backend-tiendaderopa-production.up.railway.app/api/compras/pdf", {
+  const res = await fetch("https://backend-nuestra-tienda-online-production.up.railway.app/api/compras/pdf", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ datosCliente, carrito }) // carrito ya definido
