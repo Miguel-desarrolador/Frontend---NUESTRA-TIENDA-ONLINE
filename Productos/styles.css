@@ -547,12 +547,12 @@ hr {
 
 .whatsapp-icon {
   position: fixed;
-  bottom: 25px;
+  bottom: 22px;
   left: 11px;
   background-color: #13b54e;
   padding: 16px;
   border-radius: 80%;
-  font-size: 32px;
+  font-size: 22px;
   color: white;
   display: flex;
   align-items: center;
@@ -585,12 +585,12 @@ hr {
 
 .scroll-to-top {
   position: fixed;
-  bottom: 95px;
-  left: 20px;
+  bottom: 80px;
+  left: 18px;
   background-color: #161616;
   color: white;
-  font-size: 18px;
-  padding: 15px;
+  font-size: 15px;
+  padding: 13px;
   border-radius: 100px;
   border: none;
   cursor: pointer;
