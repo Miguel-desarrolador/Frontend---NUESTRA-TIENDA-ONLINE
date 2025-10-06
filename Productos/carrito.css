@@ -66,12 +66,11 @@
   position: fixed;
   bottom: 25px;
   right: 20px;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   background-color: transparent;
   border-radius: 50%;
   overflow: visible;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   z-index: 1001;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -133,7 +132,6 @@
   flex-direction: column;
   gap: 1rem;
   z-index: 1000;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -173,6 +171,7 @@
 #carritoProductos {
   overflow-y: auto;
   display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -285,14 +284,18 @@
 ========================== */
 #vaciarCarrito,
 #finalizarCompra {
-  width: 100%;
-  padding: 1rem;
+  width: 80%;
+  padding: 0.8rem;
   border: none;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
+  display: block;        /* Hace que el botón ocupe una línea entera */
+  margin: auto;   
+  text-align: center;    /* Centra el texto dentro */
 }
+
 
 #vaciarCarrito {
   background: #dc3545;
@@ -319,8 +322,8 @@
 ========================== */
 .total {
   font-weight: bold;
-  font-size: 1.2rem;
-  text-align: right;
+  font-size: 1rem;
+  text-align: center;
   margin-top: 0.3rem;
 }
 
