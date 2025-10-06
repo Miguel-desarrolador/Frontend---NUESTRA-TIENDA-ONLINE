@@ -821,35 +821,24 @@ cerrarModalDatos.addEventListener("click", () => {
   modalDatosCliente.classList.add("oculto");
   formDatosCliente.reset();
 });
-
 // ==========================
 // AUTOCOMPLETAR DATOS DEL CLIENTE
 // ==========================
 btnAutocompletar.addEventListener("click", () => {
   const datosGuardados = JSON.parse(localStorage.getItem("datosCliente"));
   if (!datosGuardados) {
-   mostrarAlerta("No se encontraron datos guardados previamente.", "error");
+    mostrarAlerta("No se encontraron datos guardados previamente.", "error");
     return;
   }
 
   document.getElementById("inputNombreCliente").value = datosGuardados.nombre || "";
-  document.getElementById("inputDNI").value = datosGuardados.dni || "";
   document.getElementById("inputCelular").value = datosGuardados.celular || "";
-  document.getElementById("inputProvincia").value = datosGuardados.provincia || "";
-  document.getElementById("inputLocalidad").value = datosGuardados.localidad || "";
-  document.getElementById("inputCodigoPostal").value = datosGuardados.codigoPostal || "";
-  document.getElementById("inputEmailCliente").value = datosGuardados.email || "";
-  document.getElementById("selectEnvio").value = datosGuardados.envio || "Correo Argentino";
+  document.getElementById("inputDireccion").value = datosGuardados.direccion || "";
   document.getElementById("selectDispositivo").value = datosGuardados.dispositivo || "Android";
+  document.getElementById("selectEnvio").value = datosGuardados.envio || "Domicilio";
+  document.getElementById("selectPago").value = datosGuardados.pago || "Efectivo";
 });
 
-
-// ==========================
-// FUNCION HELPER PARA CAPITALIZAR
-// ==========================
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
 
 // ==========================
 // FINALIZAR COMPRA Y GENERAR PDF
@@ -859,14 +848,11 @@ formDatosCliente.addEventListener("submit", async (e) => {
 
   const datosCliente = {
     nombre: document.getElementById("inputNombreCliente").value,
-    dni: document.getElementById("inputDNI").value,
     celular: document.getElementById("inputCelular").value,
-    provincia: document.getElementById("inputProvincia").value,
-    localidad: document.getElementById("inputLocalidad").value,
-    codigoPostal: document.getElementById("inputCodigoPostal").value,
-    email: document.getElementById("inputEmailCliente").value,
+    direccion: document.getElementById("inputDireccion").value,
+    dispositivo: document.getElementById("selectDispositivo").value,
     envio: document.getElementById("selectEnvio").value,
-    dispositivo: document.getElementById("selectDispositivo").value
+    pago: document.getElementById("selectPago").value
   };
 
   try {
@@ -886,12 +872,10 @@ formDatosCliente.addEventListener("submit", async (e) => {
     // Guardar datos en localStorage
     localStorage.setItem("datosCliente", JSON.stringify(datosCliente));
 
-    // --------------------------
-    // CREAR PDF CORRECTO
-    // --------------------------
-    await generarPDF(datosCliente, carrito); // <--- Aquí estaba el error, ahora pasamos carrito
+    // Generar PDF
+    await generarPDF(datosCliente, carrito);
 
-    // Limpiar carrito y modal
+    // Limpiar carrito y cerrar modal
     carrito = [];
     guardarCarrito();
     actualizarStockVisual();
@@ -900,7 +884,7 @@ formDatosCliente.addEventListener("submit", async (e) => {
     mostrarAlerta("Compra realizada con éxito!", "success");
   } catch (err) {
     console.error(err);
-   mostrarAlerta("Error finalizando la compra, intente más tarde.", "error");
+    mostrarAlerta("Error finalizando la compra, intente más tarde.", "error");
   }
 });
 

@@ -175,6 +175,27 @@
     </div>
   </div>
 </div>
+ 
+
+<!-- En tu <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <button class="scroll-to-top" title="Volver arriba">
+  <i class="fas fa-arrow-up"></i>
+</button>
+    
+    
+    <!-- Icono de WhatsApp flotante -->
+<a href="https://wa.me/3413047240" target="_blank" class="whatsapp-icon">
+  <i class="fab fa-whatsapp"></i>
+</a>
+    
+    <div class="envios-container">
+    <h2>Envíos a todo ROSARIO</h2>
+    <div class="truck-container">
+        <i class="fas fa-truck"></i>
+    </div>
+</div>
+    
 
 <section class="formas-pago">
   <h2>Formas de Pago</h2>
@@ -200,30 +221,7 @@
     <button class="next">&#10095;</button>
   </div>
 </section>
-
-   
-    
-
-<!-- En tu <head> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   <button class="scroll-to-top" title="Volver arriba">
-  <i class="fas fa-arrow-up"></i>
-</button>
-    
-    
-    <!-- Icono de WhatsApp flotante -->
-<a href="https://wa.me/3413047240" target="_blank" class="whatsapp-icon">
-  <i class="fab fa-whatsapp"></i>
-</a>
-    
-    <div class="envios-container">
-    <h2>Envíos a todo ROSARIO</h2>
-    <div class="truck-container">
-        <i class="fas fa-truck"></i>
-    </div>
-</div>
-    
-
+<br>   <br>    
 <footer id="footer">
     <div class="footer-content">
         <!-- Redes Sociales -->
@@ -321,54 +319,52 @@
     <button id="finalizarCompra">Finalizar compra</button>
   </div>
 
-
 <!-- Modal datos cliente -->
 <div id="modalDatosCliente" class="modal oculto modal-cliente">
   <div class="modal-content modal-cliente-content">
     <button class="cerrar-modal btn-cerrar-modal" id="cerrarModalDatos">&times;</button>
     <h3 class="modal-titulo">Datos del Cliente</h3>
     <form id="formDatosCliente" class="form-cliente">
+
       <label class="form-label">Nombre y Apellido
         <input type="text" id="inputNombreCliente" class="form-input" required>
       </label>
-      <label class="form-label">DNI
-        <input type="text" id="inputDNI" class="form-input" required>
-      </label>
-      <label class="form-label">Celular
+
+      <label class="form-label">Teléfono
         <input type="text" id="inputCelular" class="form-input" required>
       </label>
-      <label class="form-label">Provincia
-        <input type="text" id="inputProvincia" class="form-input" required>
-      </label>
-      <label class="form-label">Localidad
-        <input type="text" id="inputLocalidad" class="form-input" required>
-      </label>
-      <label class="form-label">Código Postal
-        <input type="text" id="inputCodigoPostal" class="form-input" required>
-      </label>
-      <label class="form-label">Email
-        <input type="email" id="inputEmailCliente" class="form-input" required>
-      </label>
-      <label class="form-label">Envío
-  <select id="selectEnvio" class="form-select" required>
-    <option value="CorreoArgentino">Correo Argentino</option>
-    <option value="ViaCarga">Via Cargo</option>
-  </select>
-</label>
 
+      <label class="form-label">Dirección
+        <input type="text" id="inputDireccion" class="form-input" required>
       </label>
+
       <label class="form-label">Dispositivo
         <select id="selectDispositivo" class="form-select" required>
           <option value="Android">Android</option>
           <option value="iPhone">iPhone</option>
         </select>
       </label>
-      <button type="button" id="btnAutocompletar" class="btn-autocompletar">Autocompletar Datos</button>
 
+      <label class="form-label">Envío
+        <select id="selectEnvio" class="form-select" required>
+          <option value="Domicilio">A domicilio</option>
+          <option value="Local">Retira en el local</option>
+        </select>
+      </label>
+
+      <label class="form-label">Forma de Pago
+        <select id="selectPago" class="form-select" required>
+          <option value="Efectivo">Efectivo</option>
+          <option value="Transferencia">Transferencia</option>
+        </select>
+      </label>
+
+      <button type="button" id="btnAutocompletar" class="btn-autocompletar">Autocompletar Datos</button>
       <button type="submit" class="btn-submit">Finalizar Compra</button>
     </form>
   </div>
 </div>
+
 
 
 
