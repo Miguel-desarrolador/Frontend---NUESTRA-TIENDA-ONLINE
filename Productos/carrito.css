@@ -291,7 +291,7 @@
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
   display: block;        /* Hace que el botón ocupe una línea entera */
-  margin: auto;   
+  margin: 1px;   
   text-align: center;    /* Centra el texto dentro */
 }
 
@@ -345,4 +345,13 @@
 /* Evita que el body se mueva cuando el carrito está abierto */
 body.no-scroll {
   overflow: hidden;
+}
+
+/* Mensaje de carrito vacío simple y limpio */
+.mensaje-vacio {
+  text-align: center;
+  font-size: 1rem;
+  color: #777;
+  padding: 30px 10px;
+  font-weight: 400;
 }

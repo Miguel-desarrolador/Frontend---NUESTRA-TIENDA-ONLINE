@@ -634,12 +634,23 @@ function eliminarDelCarrito(id) {
     mostrarAlerta(`"${producto.nombre}" fue eliminado del carrito.`, "success");
   });
 }
-
-
 // Renderizar carrito
 function renderizarCarrito() {
-  carritoProductos.innerHTML = "";
+  carritoProductos.innerHTML = ""; // Limpiamos primero
   let total = 0, cantidadTotal = 0;
+
+  if (carrito.length === 0) {
+    // Mostrar mensaje cuando está vacío
+    const mensaje = document.createElement("p");
+    mensaje.textContent = "El carrito está vacío"; // texto que quieres mantener
+    mensaje.classList.add("mensaje-vacio"); // opcional para estilos
+    carritoProductos.appendChild(mensaje);
+
+    // También actualizar totales en 0
+    totalCarritoSpan.textContent = "0";
+    cantidadCarritoSpan.textContent = "0";
+    return; // terminamos la función
+  }
 
   carrito.forEach(p => {
     const subtotal = p.precio * p.cantidad;
@@ -649,15 +660,12 @@ function renderizarCarrito() {
     const div = document.createElement("div");
     div.classList.add("carrito-item");
     div.innerHTML = `
-   <img src="https://backend-nuestra-tienda-online-production.up.railway.app/img/productos/${p.imagen}" alt="${p.nombre}">
-
+      <img src="https://backend-nuestra-tienda-online-production.up.railway.app/img/productos/${p.imagen}" alt="${p.nombre}">
       <div class="carrito-info">
         <p><strong>${p.nombre}</strong></p>
         <p class="precio">Precio: $${p.precio.toLocaleString("es-AR")}</p>
-
         <p>Stock: ${p.stock}</p>
         <p class="subtotal">Subtotal: $${subtotal.toLocaleString("es-AR")}</p>
-
         <div class="carrito-cantidad">
           <button class="btn-menos">-</button>
           <span>${p.cantidad}</span>
@@ -1079,7 +1087,7 @@ const modalStockCancelar = document.getElementById("modalStockCancelar");
 const modalStockClose = document.querySelector(".modalStock-close");
 
 // Función para mostrar modalStock como prompt
-function mostrarModalStock(mensaje, valorInicial = "", callback) {
+function mostrarModalStock(mensaje, valorInicial = A, callback) {
   modalStockMensaje.textContent = mensaje;
   modalStockInput.value = valorInicial;
   modalStock.style.display = "block";
