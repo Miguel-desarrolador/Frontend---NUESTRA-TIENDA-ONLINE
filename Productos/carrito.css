@@ -168,7 +168,6 @@
    LISTA DE PRODUCTOS
 ========================== */
 #carritoProductos {
-  overflow-y: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
