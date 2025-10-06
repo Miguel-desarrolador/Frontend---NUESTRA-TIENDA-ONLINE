@@ -22,11 +22,9 @@
     font-family: 'Arial', sans-serif;
 }
 
-.logo-gorra {
-  width: 100px;
+.logo-gorra2 {
+  width: 60px;
   height: auto;
-  position: absolute;
-  left: 110px;
   margin-top: -5px;
 }
 
@@ -38,7 +36,6 @@
     color: rgb(0, 0, 0);
     text-transform: uppercase;
 }
-
 /* ==========================
    TÍTULO DEL CARRITO
 ========================== */
@@ -60,70 +57,74 @@
 #carritoFlotante * {
   font-family: 'Roboto', sans-serif;
 }
+
+/* ==========================
+   ICONO DEL CARRITO
+========================== */
 .carrito-icono {
-    position: fixed;
-    bottom: 25px;
-    right: 20px;
-    width: 70px;
-    height: 70px;
-    background-color: transparent;
-    border-radius: 50%;
-    overflow: visible; /* importante para que el contador sobresalga */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    z-index: 1001;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+  border-radius: 50%;
+  overflow: visible;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carrito-icono:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .carrito-icono img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Contador sobresaliendo fuera del círculo */
 .contador {
-    position: absolute;
-    top: -12px;      /* sobresale hacia arriba */
-    right: -12px;    /* sobresale hacia la derecha */
-    background-color: #e74c3c;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 5px 9px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    z-index: 1010;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 5px 9px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1010;
 }
 
 /* Responsive */
 @media (max-width: 480px) {
-    .carrito-icono {
-        width: 60px;
-        height: 60px;
-    }
-    .contador {
-        top: -10px;
-        right: -10px;
-        font-size: 12px;
-        padding: 4px 7px;
-    }
+  .carrito-icono {
+    width: 60px;
+    height: 60px;
+  }
+  .contador {
+    top: -10px;
+    right: -10px;
+    font-size: 12px;
+    padding: 4px 7px;
+  }
 }
 
 /* ==========================
-   CARRITO FLOTANTE OCULTO
+   CARRITO FLOTANTE OCULTO (100% ancho real)
 ========================== */
 #carritoFlotante {
   position: fixed;
   top: 0;
   right: 0;
-  width: 100%;
+  width: 100%; /* 100% ancho */
   height: 100%;
   background: #fff;
   padding: 2rem;
@@ -134,17 +135,20 @@
 
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   overflow-y: hidden;
+  transform: translateX(100%); /* Oculto a la derecha */
+  box-sizing: border-box;
 }
 
 /* ==========================
-   CARRITO ABIERTO
+   CARRITO ABIERTO (animación desde la derecha)
 ========================== */
 #carritoFlotante.abierto {
   opacity: 1;
   pointer-events: auto;
   overflow-y: auto;
+  transform: translateX(0); /* Se desliza hacia dentro */
 }
 
 /* ==========================
@@ -171,11 +175,12 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding-right: 0.5rem;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 /* ==========================
-   ITEM DEL CARRITO - BLOQUE VERTICAL CENTRADO
+   ITEM DEL CARRITO
 ========================== */
 .carrito-item {
   display: flex;
@@ -188,16 +193,14 @@
   background: #f9f9f9;
 }
 
-/* IMAGEN DEL PRODUCTO */
 .carrito-item img {
-  width: 60%; /* imagen más grande */
+  width: 60%;
   border-radius: 6px;
   object-fit: cover;
   display: block;
   margin: 0 auto;
 }
 
-/* INFO DEL PRODUCTO CENTRADO */
 .carrito-info {
   display: flex;
   flex-direction: column;
@@ -207,7 +210,7 @@
 }
 
 .carrito-info p.titulo-producto {
-  font-size: 1.6rem; /* nombre más grande */
+  font-size: 1.6rem;
   font-weight: bold;
   color: #000;
   margin-bottom: 0.3rem;
@@ -220,7 +223,7 @@
 }
 
 /* ==========================
-   CANTIDAD + BOTONES HORIZONTALES
+   CANTIDAD + BOTONES
 ========================== */
 .carrito-cantidad {
   display: flex;
@@ -251,7 +254,7 @@
 }
 
 /* ==========================
-   BOTÓN ELIMINAR CENTRADO
+   BOTÓN ELIMINAR
 ========================== */
 .btn-eliminar-carrito {
   background: #dc3545;
@@ -325,17 +328,22 @@
 }
 
 /* ==========================
-   SCROLL PERSONALIZADO
+   SCROLL PERSONALIZADO (pegado al borde)
 ========================== */
 #carritoProductos::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 #carritoProductos::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.35);
   border-radius: 4px;
 }
 
 #carritoProductos::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Evita que el body se mueva cuando el carrito está abierto */
+body.no-scroll {
+  overflow: hidden;
 }
